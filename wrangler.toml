@@ -13,13 +13,13 @@ TARGET_UPSTREAM = "https://registry-1.docker.io"
 [env.production]
 name = "cloudflare-docker-proxy"
 routes = [
-  { pattern = "docker.blynk.space", custom_domain = true },
-  { pattern = "quey.blynk.space", custom_domain = true },
-  { pattern = "gcr.blynk.space", custom_domain = true },
-  { pattern = "k8s-gcr.blynk.space", custom_domain = true },
-  { pattern = "k8s.blynk.space", custom_domain = true },
-  { pattern = "ghcr.blynk.space", custom_domain = true },
-  { pattern = "cloudsmith.blynk.space", custom_domain = true },
+  { pattern = "docker.918178.xyz", custom_domain = true },
+  { pattern = "quey.918178.xyz", custom_domain = true },
+  { pattern = "gcr.918178.xyz", custom_domain = true },
+  { pattern = "k8s-gcr.918178.xyz", custom_domain = true },
+  { pattern = "k8s.918178.xyz", custom_domain = true },
+  { pattern = "ghcr.918178.xyz", custom_domain = true },
+  { pattern = "cloudsmith.918178.xyz", custom_domain = true },
 ]
 
 [env.production.vars]
@@ -28,7 +28,7 @@ TARGET_UPSTREAM = ""
 
 [env.staging]
 name = "cloudflare-docker-proxy-staging"
-route = { pattern = "docker-staging.blynk.space", custom_domain = true }
+route = { pattern = "docker-staging.918178.xyz", custom_domain = true }
 
 [env.staging.vars]
 MODE = "staging"
