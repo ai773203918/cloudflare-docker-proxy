@@ -1,3 +1,7 @@
+
+// 加载 help.html 文件(帮助页面)
+import DOCS from './help.html'  // 添加到头部即可
+
 addEventListener("fetch", (event) => {
   event.passThroughOnException();
   event.respondWith(handleRequest(event.request));
@@ -15,6 +19,7 @@ const routes = {
   ["ghcr." + CUSTOM_DOMAIN]: "https://ghcr.io",
   ["cloudsmith." + CUSTOM_DOMAIN]: "https://docker.cloudsmith.io",
   ["ecr." + CUSTOM_DOMAIN]: "https://public.ecr.aws",
+  ["hf." + CUSTOM_DOMAIN]: "https://registry.hf.space",
 
   // staging
   ["docker-staging." + CUSTOM_DOMAIN]: dockerHub,
@@ -45,6 +50,15 @@ async function handleRequest(request) {
   }
   const isDockerHub = upstream == dockerHub;
   const authorization = request.headers.get("Authorization");
+  // 添加到该位置👇
+  if (url.pathname === "/") {
+    return new Response(DOCS, {
+      status: 200,
+      headers: {
+        "content-type": "text/html"
+      }
+    });
+  }
   if (url.pathname == "/v2/") {
     const newUrl = new URL(upstream + "/v2/");
     const headers = new Headers();
